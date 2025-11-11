@@ -1,13 +1,22 @@
 <!doctype html>
-<html lang="en">
+<html lang="en" class="wa-theme-default">
   <head>
     <meta charset="UTF-8" />
-    <link rel="icon" type="image/svg+xml" href="/vite.svg" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>simple-web-awesome-landing</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>Safe 4 Talk — Practice Languages, Talk Freely</title>
+    <meta name="description" content="Practice languages with real people. Safe 4 Talk is free and secure. Download now on Google Play." />
+    <script src="https://kit.webawesome.com/c9aedab06b7741bc.js" crossorigin="anonymous"></script>
   </head>
   <body>
     <div id="root"></div>
+
+    <!-- Native Popover for frictionless tips -->
+    <div id="install-tip" popover>
+      <strong>One tap to install</strong>
+      <p>Open the Google Play page and tap <em>Install</em>. We route you based on your device.</p>
+      <wa-button size="small" data-close-popover>Got it</wa-button>
+    </div>
+
     <script type="module" src="/src/main.tsx"></script>
   </body>
 </html>

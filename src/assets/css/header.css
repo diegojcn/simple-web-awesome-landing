@@ -1,0 +1,106 @@
+/* ========== HEADER ========== */
+.header {
+  position: sticky;
+  top: 0;
+  z-index: 1000;
+  height: 80px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 1.25rem 0;
+  background: rgba(12, 14, 18, 0.7);
+  backdrop-filter: blur(12px);
+  border-bottom: 1px solid rgba(255, 255, 255, 0.05);
+  /* transition: all 0.3s ease; */
+  transition: background 0.3s ease, box-shadow 0.3s ease;
+}
+
+.header.sticky-active {
+  background: rgba(15, 15, 15, 0.9);
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.3);
+}
+
+/* When user scrolls, add subtle elevation */
+body:has(.header.sticky-active) .header {
+  background: rgba(12, 14, 18, 0.9);
+  border-bottom-color: rgba(255, 255, 255, 0.08);
+  box-shadow: 0 2px 20px rgba(0, 0, 0, 0.4);
+}
+
+/* Brand */
+.brand {
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+  color: var(--text);
+  font-weight: 600;
+  font-size: 1.1rem;
+  text-decoration: none;
+  transition: color 0.3s ease;
+}
+
+.brand:hover {
+  color: var(--brand);
+  text-shadow: 0 0 10px color-mix(in oklab, var(--brand) 50%, transparent);
+}
+
+/* Navigation */
+.nav {
+  display: flex;
+  gap: 2rem;
+  align-items: center;
+}
+
+.nav a {
+  color: var(--muted);
+  text-decoration: none;
+  font-weight: 500;
+  position: relative;
+  transition: color 0.3s ease;
+}
+
+.nav a::after {
+  content: "";
+  position: absolute;
+  bottom: -4px;
+  left: 0;
+  width: 0;
+  height: 2px;
+  background: var(--brand);
+  border-radius: 2px;
+  transition: width 0.3s ease;
+}
+
+.nav a:hover {
+  color: var(--text);
+}
+
+.nav a:hover::after {
+  width: 100%;
+}
+
+/* Actions (buttons) */
+.actions {
+  display: flex;
+  gap: 0.75rem;
+}
+
+/* When window shrinks */
+@container (max-width: 820px) {
+  .nav {
+    display: none;
+  }
+  .actions {
+    margin-left: auto;
+  }
+}
+
+/* Responsive fallback */
+@media (max-width: 820px) {
+  .nav {
+    display: none;
+  }
+  .actions {
+    margin-left: auto;
+  }
+}

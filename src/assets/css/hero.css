@@ -1,0 +1,44 @@
+
+/* Hero */
+.hero {
+  display: grid;
+  gap: 2rem;
+  padding: 4rem 0;
+  align-items: center;
+  container-type: inline-size;
+  container-name: hero;
+}
+.hero__content h1 {
+  font-size: clamp(2rem, 4vw + 1rem, 3.5rem);
+  background: var(--gradient);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  line-height: 1.1;
+}
+.hero__content .lede {
+  max-width: 45ch;
+  color: var(--muted);
+}
+.hero__visual {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin-top: 2rem;
+}
+
+.phone-mock {
+  border-radius: 20px;
+  overflow: hidden;
+  border: 2px solid rgba(255,255,255,0.1);
+  box-shadow: 0 20px 60px rgba(0,0,0,0.5);
+  transform: rotate(-3deg);
+  transition: transform 0.3s;
+}
+.phone-mock:hover {
+  transform: rotate(0deg) scale(1.02);
+}
+.phone-mock img {
+  width: 100%;
+  display: block;
+}
+

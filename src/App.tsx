@@ -1,5 +1,4 @@
 import { useEffect, useMemo, useRef, useState } from "react";
-import { Row, Col, Card, ButtonGroup, ToggleButton, Form } from "react-bootstrap";
 import logo from "./assets/s4t-logo.webp";
 
 
@@ -51,33 +50,16 @@ export default function App() {
     return () => observer.disconnect();
   }, []);
 
+  const openDrawer = () => {
+    const drawer = drawerRef.current;
+    if (drawer && !drawer.open) drawer.open = true;
+  };
 
   // Smart install link
   const installHref = useMemo(() => {
     const ua = navigator.userAgent.toLowerCase();
     if (/android|huawei|xiaomi|samsung|pixel/.test(ua)) return PLAY_URL_UTM;
     return PLAY_URL_UTM;
-  }, []);
-
-  // Popover API usage
-  useEffect(() => {
-    const tip = document.getElementById("install-tip") as HTMLDivElement | null;
-    if (!tip) return;
-    const root = document.getElementById("root")!;
-    const onHover = (e: Event) => {
-      const t = e.target as HTMLElement;
-      if (t.closest(".cta-install")) (tip as any).showPopover?.();
-    };
-    const onClick = (e: Event) => {
-      const t = e.target as HTMLElement;
-      if (t.hasAttribute("data-close-popover")) (tip as any).hidePopover?.();
-    };
-    root.addEventListener("pointerover", onHover, { once: true });
-    root.addEventListener("click", onClick);
-    return () => {
-      root.removeEventListener("pointerover", onHover);
-      root.removeEventListener("click", onClick);
-    };
   }, []);
 
   return (
@@ -115,14 +97,9 @@ export default function App() {
             <wa-icon name="google-play" family="brands"></wa-icon>&nbsp;Install
           </wa-button>
 
-          <wa-button
-            size="small"
-            appearance="outline"
-            onClick={() => {
-              const drawer = document.getElementById('qrDrawer');
-              (drawer as any)?.show?.();
-            }}
-          >
+          <wa-button size="small"
+            variant="outline"
+            onClick={openDrawer}>
             <wa-icon name="qrcode" label="QR"></wa-icon>&nbsp;Scan
           </wa-button>
         </div>
@@ -293,7 +270,7 @@ export default function App() {
             </summary>
             <div className="faq-body">
               <p>Yes. 100% free. No ads, no hidden fees — just real conversations.</p>
-             
+
             </div>
           </details>
 
@@ -344,6 +321,31 @@ export default function App() {
         </div>
       </section>
 
+      <section className="drawer-section">
+        {/* Drawer component */}
+        <wa-drawer
+          id="drawer-overview"
+          label="Install via QR"
+          light-dismiss
+          ref={drawerRef}
+          style={{
+            "--drawer-width": "340px",
+            "--drawer-transition": "transform 0.4s ease, opacity 0.4s ease",
+          }}
+        >
+
+          <p>Scan with your phone to open Google Play.</p>
+          <div className="qr-wrap">
+            <wa-qr-code value={PLAY_URL_UTM} size="180" radius="0.2"></wa-qr-code>
+          </div>
+
+          <wa-button slot="footer" variant="brand" data-drawer="close">
+            Close
+          </wa-button>
+        </wa-drawer>
+
+      </section>
+
       {/* FOOTER */}
       <footer className="footer wrapper">
         <div className="footer-left">
@@ -355,38 +357,6 @@ export default function App() {
           <a href={PLAY_URL} target="_blank" rel="noreferrer">Google Play</a>
         </div>
       </footer>
-
-      {/* Drawer for QR */}
-      <wa-drawer
-        id="qrDrawer"
-        label="Install via QR"
-        light-dismiss
-        placement="right"
-        style={{
-          '--drawer-width': '320px',
-          '--drawer-transition': 'transform 0.35s ease, opacity 0.35s ease',
-        }}
-        ref={drawerRef}
-      >
-        <div className="qr-content">
-          <p>Scan with your phone to open Google Play.</p>
-          <div className="qr-wrap">
-            <wa-qr-code value={PLAY_URL_UTM} size="180" radius="0.2"></wa-qr-code>
-          </div>
-        </div>
-
-        <wa-button
-          slot="footer"
-          variant="brand"
-          onClick={() => {
-            const drawer = document.getElementById('qrDrawer');
-            (drawer as any)?.hide?.();
-          }}
-        >
-          Close
-        </wa-button>
-      </wa-drawer>
-
 
     </main>
   );

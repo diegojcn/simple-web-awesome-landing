@@ -1,11 +1,101 @@
-/* Features */
+/* ========== WHY YOU’LL LOVE IT SECTION ========== */
 .features {
-  padding: 3rem 0;
+  padding: 5rem 0;
   text-align: center;
+  background: radial-gradient(circle at top center, rgba(0, 86, 255, 0.08), transparent 70%);
 }
+
+.features-title {
+  font-size: 2.4rem;
+  font-weight: 700;
+  color: var(--text);
+  margin-bottom: 3rem;
+  position: relative;
+}
+
+.features-title::after {
+  content: "";
+  display: block;
+  width: 80px;
+  height: 3px;
+  background: var(--brand);
+  margin: 0.75rem auto 0;
+  border-radius: 2px;
+  opacity: 0.8;
+}
+
 .feature-grid {
   display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
-  gap: 1rem;
-  margin-top: 2rem;
+  grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+  gap: 2rem;
+  justify-items: center;
 }
+
+.feature-card {
+  background: linear-gradient(180deg, rgba(255, 255, 255, 0.06), rgba(255, 255, 255, 0.02));
+  border: 1px solid rgba(255, 255, 255, 0.08);
+  border-radius: 16px;
+  padding: 2rem 1.5rem;
+  box-shadow: 0 4px 25px rgba(0, 0, 0, 0.3);
+  transition: all 0.4s ease;
+  backdrop-filter: blur(8px);
+  max-width: 340px;
+  position: relative;
+  animation: fadeInUp 1s ease forwards;
+  opacity: 0;
+}
+
+.feature-card:nth-child(1) { animation-delay: 0.1s; }
+.feature-card:nth-child(2) { animation-delay: 0.25s; }
+.feature-card:nth-child(3) { animation-delay: 0.4s; }
+
+.feature-card:hover {
+  transform: translateY(-8px);
+  border-color: var(--brand);
+  box-shadow: 0 10px 35px color-mix(in oklab, var(--brand) 40%, black 60%);
+}
+
+/* ICON STYLE */
+.feature-icon {
+  display: grid;
+  place-items: center;
+  width: 64px;
+  height: 64px;
+  margin: 0 auto 1rem;
+  border-radius: 50%;
+  background: radial-gradient(circle at center, color-mix(in oklab, var(--brand) 50%, transparent), transparent 70%);
+}
+
+.feature-icon wa-icon {
+  --size: 28px;
+  color: var(--brand);
+  filter: drop-shadow(0 0 8px color-mix(in oklab, var(--brand) 60%, transparent));
+}
+
+.feature-card h3 {
+  color: var(--text);
+  font-size: 1.3rem;
+  font-weight: 600;
+  margin-bottom: 0.75rem;
+}
+
+.feature-card p {
+  color: var(--muted);
+  font-size: 1rem;
+  line-height: 1.5;
+  margin: 0 auto;
+  max-width: 260px;
+}
+
+/* ENTRY ANIMATION */
+@keyframes fadeInUp {
+  0% {
+    transform: translateY(20px);
+    opacity: 0;
+  }
+  100% {
+    transform: translateY(0);
+    opacity: 1;
+  }
+}
+

@@ -18,18 +18,49 @@ body {
   margin: 0 auto;
 }
 
-
-
-
-
-
-
-
-
-
 .qr-wrap {
   display: grid;
   place-items: center;
   padding: 1.5rem 0;
+}
+
+.actions {
+  display: flex;
+  align-items: center;
+  gap: 0.75rem;
+  flex-wrap: wrap;
+}
+
+html {
+  scroll-behavior: smooth;
+}
+
+.nav a {
+  color: var(--muted);
+  text-decoration: none;
+  transition: color 0.3s ease;
+}
+
+.nav a.active {
+  color: var(--brand);
+  font-weight: 600;
+  border-bottom: 2px solid var(--brand);
+}
+
+.nav a.active::after {
+  width: 100%;
+  opacity: 1;
+}
+
+section[id],
+footer[id] {
+  scroll-margin-top: 80px;
+}
+
+@media (max-width: 768px) {
+  section[id],
+  footer[id] {
+    scroll-margin-top: 90px;
+  }
 }
 

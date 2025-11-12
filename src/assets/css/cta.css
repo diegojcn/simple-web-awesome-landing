@@ -1,0 +1,10 @@
+/* CTA bar */
+.cta-bar {
+  background: var(--gradient);
+  text-align: center;
+  padding: 2rem 0;
+  color: #fff;
+}
+.cta-bar h3 {
+  margin-bottom: 1rem;
+}

@@ -1,0 +1,11 @@
+/* Reviews */
+.reviews {
+  padding: 3rem 0;
+  text-align: center;
+}
+.review-cards {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+  gap: 1rem;
+  margin-top: 1rem;
+}

@@ -1,0 +1,35 @@
+:root {
+  --brand: #0070f3;
+  --bg: #0b0d12;
+  --text: #e8ebf1;
+  --muted: #9ea7b3;
+  --gradient: linear-gradient(135deg, #0070f3, #00b7ff);
+}
+
+body {
+  margin: 0;
+  background-color: var(--bg);
+  color: var(--text);
+  font-family: "Inter", system-ui, sans-serif;
+}
+
+.wrapper {
+  width: min(1100px, 92vw);
+  margin: 0 auto;
+}
+
+
+
+
+
+
+
+
+
+
+.qr-wrap {
+  display: grid;
+  place-items: center;
+  padding: 1.5rem 0;
+}
+

@@ -1,0 +1,22 @@
+.custom-drawer::part(base) {
+  transform: translateY(100%);
+  opacity: 0;
+  transition: transform 0.45s cubic-bezier(0.4, 0, 0.2, 1),
+              opacity 0.45s ease;
+  will-change: transform, opacity;
+}
+
+.custom-drawer.drawer-visible::part(base) {
+  transform: translateY(0);
+  opacity: 1;
+}
+
+.custom-drawer::part(overlay) {
+  background: rgba(0, 0, 0, 0.7);
+  opacity: 0;
+  transition: opacity 0.45s ease;
+}
+
+.custom-drawer.drawer-visible::part(overlay) {
+  opacity: 1;
+}

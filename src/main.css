@@ -1,0 +1,22 @@
+@import './assets/css/global.css';
+@import './assets/css/header.css';
+@import './assets/css/hero.css';
+@import './assets/css/features.css';
+@import './assets/css/reviews.css';
+@import './assets/css/cta.css';
+@import './assets/css/footer.css';
+@import './assets/css/components/drawer.css';
+@import './assets/css/components/popover.css';
+
+
+
+/* // import all Web Awesome styles, including the default theme */
+@import '@awesome.me/webawesome/dist/styles/webawesome.css';
+
+/* // Optional: import your preferred theme */
+@import '@awesome.me/webawesome/dist/styles/themes/awesome.css';
+
+/* // Load Web Awesome styles + all components ONCE to avoid duplicate registry errors */
+@import '@awesome.me/webawesome/dist/styles/themes/default.css';
+@import '@awesome.me/webawesome/dist/styles/native.css';
+@import '@awesome.me/webawesome/dist/styles/utilities.css';
